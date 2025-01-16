@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puberty Function Invitation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap');
 
@@ -102,7 +103,9 @@
         }
 
         .rsvp-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 12px 30px;
             background: linear-gradient(135deg, #f472b6, #ec4899);
             color: white;
@@ -317,7 +320,9 @@
 
         /* Language Toggle Button Styles */
         .language-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 12px 30px;
             background: linear-gradient(135deg, #f472b6, #ec4899);
             color: white;
@@ -333,6 +338,10 @@
         .language-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+        }
+
+        .btn-icon {
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -387,15 +396,26 @@
 
         <div class="rsvp">
             <!-- Button for Calling -->
-            <a href="tel:6380692552" class="rsvp-button call-button" id="callBtn">CALL for doubts</a>
+            <a href="tel:6380692552" class="rsvp-button call-button" id="callBtn">
+                <i class="fas fa-phone-alt btn-icon"></i>
+                <span>CALL for doubts</span>
+            </a>
+            <br>
+            <br>
             
             <!-- Button for Redirecting to Map -->
-            <a href="https://www.google.com/maps/place/Sri+Renugambal+Thirumana+Mandapam.Arcot+Ganapathy+Nagar/@12.8936487,79.3183826,17z/data=!3m1!4b1!4m6!3m5!1s0x3bad350b99ba462d:0x448eb582ebbad492!8m2!3d12.8936487!4d79.3183826!16s%2Fg%2F11f60w7rg1?entry=ttu&g_ep=EgoyMDI1MDExMC4wIKXMDSoASAFQAw%3D%3D" class="rsvp-button map-button" target="_blank" id="mapBtn">View Map</a>
+            <a href="https://www.google.com/maps/place/Sri+Renugambal+Thirumana+Mandapam.Arcot+Ganapathy+Nagar/@12.8936487,79.3183826,17z/data=!3m1!4b1!4m6!3m5!1s0x3bad350b99ba462d:0x448eb582ebbad492!8m2!3d12.8936487!4d79.3183826!16s%2Fg%2F11f60w7rg1?entry=ttu&g_ep=EgoyMDI1MDExMC4wIKXMDSoASAFQAw%3D%3D" class="rsvp-button map-button" target="_blank" id="mapBtn">
+                <i class="fas fa-map-marker-alt btn-icon"></i>
+                <span>View Map</span>
+            </a>
             <br>
             <br>
 
             <!-- Language Toggle Button -->
-            <button class="language-btn" id="langToggle">CHANGE LANGUAGE TO தமிழ்</button>
+            <button class="language-btn" id="langToggle">
+                <i class="fas fa-language btn-icon"></i>
+                <span>CHANGE LANGUAGE TO தமிழ்</span>
+            </button>
         </div>
     </div>
 
@@ -477,9 +497,9 @@
                 venueValue1: "Sri Selvavinayagar Renugambal Marriage hall ,",
                 venueValue2: "Tajpura",
                 venueValue3: "Arcot",
-                callButton: "CALL for doubts",
-                mapButton: "View Map",
-                langButton: "தமிழ்"
+                callButton: '<i class="fas fa-phone-alt btn-icon"></i><span>CALL for doubts</span>',
+                mapButton: '<i class="fas fa-map-marker-alt btn-icon"></i><span>View Map</span>',
+                langButton: '<i class="fas fa-language btn-icon"></i><span>CHANGE LANGUAGE TO தமிழ்</span>'
             },
             tamil: {
                 celebrationText: " செல்வராஜ் & மணிமாலா ",
@@ -493,9 +513,9 @@
                 venueValue1: "ஸ்ரீ செல்வவிநாயகர் ரேணுகாம்பாள் திருமண மண்டபம்,",
                 venueValue2: "தாஜ்புரா",
                 venueValue3: "ஆற்காடு",
-                callButton: "சந்தேகங்களுக்கு அழைக்கவும்",
-                mapButton: "வழித்தடம்",
-                langButton: "English"
+                callButton: '<i class="fas fa-phone-alt btn-icon"></i><span>சந்தேகங்களுக்கு அழைக்கவும்</span>',
+                mapButton: '<i class="fas fa-map-marker-alt btn-icon"></i><span>வழித்தடம்</span>',
+                langButton: '<i class="fas fa-language btn-icon"></i><span>Change to English</span>'
             }
         };
 
@@ -521,9 +541,9 @@
             document.querySelectorAll('.venue .value')[0].textContent = translations[currentLang].venueValue1;
             document.querySelectorAll('.venue .value')[1].textContent = translations[currentLang].venueValue2;
             document.querySelectorAll('.venue .value')[2].textContent = translations[currentLang].venueValue3;
-            document.getElementById('callBtn').textContent = translations[currentLang].callButton;
-            document.getElementById('mapBtn').textContent = translations[currentLang].mapButton;
-            document.getElementById('langToggle').textContent = translations[currentLang].langButton;
+            document.getElementById('callBtn').innerHTML = translations[currentLang].callButton;
+            document.getElementById('mapBtn').innerHTML = translations[currentLang].mapButton;
+            document.getElementById('langToggle').innerHTML = translations[currentLang].langButton;
         }
     </script>
 </body>
